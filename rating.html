@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+    <title>dddddd</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+     <link href="css/rating.css" type="text/css" rel="stylesheet">
+      <script type="text/javascript">
+        $(function(){
+            $('.container').rating();
+        });
+    </script>
+    </head>
+    <BODY>
+         <div class="container">
+         <div class="ratings">
+        <input type="radio" name="example" class="rating" value="1" />
+        <input type="radio" name="example" class="rating" value="2" />
+        <input type="radio" name="example" class="rating" value="3" />
+        <input type="radio" name="example" class="rating" value="4" />
+        <input type="radio" name="example" class="rating" value="5" />
+    </div>
+        <br>
+    <span class="info"></span>
+        </div>
+        <script src="js/jquery-1.11.3.min.js"></script>
+  
+        <script src="js/bootstrap.js"></script>
+        <script src="js/rating.js"></script>
+        <script>
+            $('.ratings').rating(function(vote, event){
+$.ajax({
+    method: 'POST',
+    url: 'insrating.php',
+    data:{vote:vote}
+}).done(function(info){
+    $('.info').html("your Vote is "+info+"")
+})
+})
+        </script>
+        </BODY>
+</html>
